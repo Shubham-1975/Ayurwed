@@ -3,7 +3,7 @@ import ImageSlider from "../Component/ImageSlider";
 import BranchSection from "../Component/BranchSection";
 import ProductSection from "../Component/ProductSection";
 import BannerSection from "../Component/BannerSection";
-import FAQSection from "../Component/FaqSection";
+import FAQSection from "../Component/FAQSection";
 
 const Home = () => {
   return (
