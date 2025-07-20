@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
 
         {/* Center: Title */}
-        <div className="text-2xl font-bold text-green-700 w-1/3 text-center">
+        <div className="lg:text-2xl text-sm font-bold text-green-700 w-1/3 text-center">
           श्री आयुर्वेद जड़ी-बूटी
         </div>
 
