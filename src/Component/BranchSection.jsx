@@ -23,9 +23,14 @@ const BranchSection = () => {
   return (
     <section className="py-12 bg-gradient-to-r from-green-200 via-white to-green-100">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#2e7d32] mb-8">
+        {/* AOS animation only on this heading */}
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-[#2e7d32] mb-8"
+          data-aos="fade-down"
+        >
           Our Branches
         </h2>
+
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {branches.map((branch, index) => (
             <div

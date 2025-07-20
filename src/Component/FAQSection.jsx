@@ -43,7 +43,7 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-green-200 rounded-lg shadow-sm"
+              className="border border-green-200 rounded-lg shadow-sm overflow-hidden"
             >
               <button
                 className="w-full text-left px-6 py-4 bg-white hover:bg-green-50 transition flex justify-between items-center"
