@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
-const faqs = [
+const originalFaqs = [
   {
     question: "What is Ayurvedic medicine?",
     answer:
@@ -25,6 +26,7 @@ const faqs = [
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const { translatedTexts } = useContext(LanguageContext);
 
   const toggleFAQ = (index) => {
     setOpenIndex(index === openIndex ? null : index);
@@ -37,10 +39,11 @@ const FAQSection = () => {
     >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-green-700 mb-8">
-          Frequently Asked Questions
+          {translatedTexts["Frequently Asked Questions"] ||
+            "Frequently Asked Questions"}
         </h2>
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {originalFaqs.map((faq, index) => (
             <div
               key={index}
               className="border border-green-200 rounded-lg shadow-sm overflow-hidden"
@@ -50,7 +53,7 @@ const FAQSection = () => {
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="font-semibold text-green-800">
-                  {faq.question}
+                  {translatedTexts[faq.question] || faq.question}
                 </span>
                 <span className="text-green-600 text-xl">
                   {openIndex === index ? "−" : "+"}
@@ -58,7 +61,7 @@ const FAQSection = () => {
               </button>
               {openIndex === index && (
                 <div className="px-6 py-4 text-gray-700 bg-white border-t">
-                  {faq.answer}
+                  {translatedTexts[faq.answer] || faq.answer}
                 </div>
               )}
             </div>

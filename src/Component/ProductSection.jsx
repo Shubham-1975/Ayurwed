@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { LanguageContext } from "../context/LanguageContext";
 
 const products = [
   {
@@ -64,8 +65,8 @@ const products = [
       "https://media.istockphoto.com/id/697860312/photo/indian-ayurvedic-dietary-supplement-called-chyawanprash-chyavanaprasha-is-a-cooked-mixture-of.jpg?s=612x612&w=0&k=20&c=outabsxtvdSSt4aCkRdjtKrVtv7qko4N6AMA6qVtWmo=",
   },
 ];
-
 const ProductSection = () => {
+  const { translatedTexts } = useContext(LanguageContext);
   const [visibleCount, setVisibleCount] = useState(0);
   const [itemsPerClick, setItemsPerClick] = useState(8);
 
@@ -92,7 +93,7 @@ const ProductSection = () => {
           className="text-3xl sm:text-4xl font-bold text-[#2e7d32] mb-10"
           data-aos="fade-down"
         >
-          Our Products
+          {translatedTexts["Our Products"] || "Our Products"}
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,9 +111,8 @@ const ProductSection = () => {
               />
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-green-800">
-                  {product.name}
+                  {translatedTexts[product.name] || product.name}
                 </h3>
-                {/* <p className="text-green-600 font-medium mt-1">{product.price}</p> */}
               </div>
             </div>
           ))}
@@ -124,7 +124,7 @@ const ProductSection = () => {
             className="mt-8 px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition"
             data-aos="fade-up"
           >
-            Show More
+            {translatedTexts["Show More"] || "Show More"}
           </button>
         )}
       </div>

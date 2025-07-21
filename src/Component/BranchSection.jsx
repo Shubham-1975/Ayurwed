@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
 const branches = [
   {
@@ -20,6 +21,12 @@ const branches = [
 ];
 
 const BranchSection = () => {
+  const { translatedTexts } = useContext(LanguageContext);
+
+  const getText = (text) => {
+    return translatedTexts[text] || text;
+  };
+
   return (
     <section className="py-12 bg-gradient-to-r from-green-200 via-white to-green-100">
       <div className="max-w-6xl mx-auto px-4 text-center">
@@ -28,7 +35,7 @@ const BranchSection = () => {
           className="text-3xl sm:text-4xl font-bold text-[#2e7d32] mb-8"
           data-aos="fade-down"
         >
-          Our Branches
+          {getText("Our Branches")}
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -38,9 +45,9 @@ const BranchSection = () => {
               className="bg-white rounded-2xl shadow-md p-6 border border-green-100 hover:shadow-lg transition"
             >
               <h3 className="text-xl font-semibold text-[#388e3c] mb-2">
-                {branch.city}
+                {getText(branch.city)}
               </h3>
-              <p className="text-gray-600 text-sm">{branch.address}</p>
+              <p className="text-gray-600 text-sm">{getText(branch.address)}</p>
             </div>
           ))}
         </div>
