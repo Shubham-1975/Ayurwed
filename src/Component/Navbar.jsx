@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import img from "../assets/Logo.png";
+// import img from "https://t3.ftcdn.net/jpg/01/04/75/24/360_F_104752490_6DkrZ8w2ZHlImp5gdyAdniaGcta3HEkE.jpg";
 import { LanguageContext } from "../context/LanguageContext";
 
 const Navbar = () => {
@@ -61,7 +61,7 @@ const Navbar = () => {
             {language === "en" ? "हिंदी" : "English"}
           </button>
           <img
-            src={img}
+            src="https://t3.ftcdn.net/jpg/01/04/75/24/360_F_104752490_6DkrZ8w2ZHlImp5gdyAdniaGcta3HEkE.jpg"
             alt="Logo"
             className="w-10 h-10 rounded-full shadow-lg border-2 border-white object-cover"
           />
